@@ -1520,7 +1520,9 @@ static int JPEGParseInfo(JPEGIMAGE *pPage, int bExtractThumb)
         (*pPage->pfnSeek)(&pPage->JPEGFile, iFilePos);
     }
     iBytesRead = (*pPage->pfnRead)(&pPage->JPEGFile, s, JPEG_FILE_BUF_SIZE);
-    if (iBytesRead < 256) // a JPEG file this tiny? probably bad
+
+    // https://stackoverflow.com/questions/2253404/what-is-the-smallest-valid-jpeg-file-size-in-bytes
+    if (iBytesRead < 125) // a JPEG file this tiny? probably bad
     {
         pPage->iError = JPEG_INVALID_FILE;
         return 0;
