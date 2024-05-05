@@ -1,3 +1,7 @@
+# General
+JPEGDEC is great, but it has the problem of not being able to read very small files.<br>
+I forked and modified it to solve it.<br>
+
 JPEGDEC<br>
 -----------------------------------
 Copyright (c) 2020 BitBank Software, Inc.<br>
